@@ -368,7 +368,7 @@ def decode_pm_status(status: str, forSYMP4KI: bool):
     dcBusCoef = 2 if forSYMP4KI else 1.114
     pfcAmpsCoef = 0.2
 
-    if len(status.replace('-', '').replace(' ', '')) != 44:
+    if len(status.replace('-', '').replace(' ', '').replace('\n', '')) != 44:
         print("Incorrect status-code. Exiting...")
         return {
             "message": "Incorrect status code"
@@ -470,7 +470,7 @@ def decode_pm_status(status: str, forSYMP4KI: bool):
 
 def decode_mim5_status(status: str):
 
-    if len(status.replace('-', '').replace(' ', '')) != 47:
+    if len(status.replace('-', '').replace(' ', '').replace('\n', '')) != 47:
         print("Incorrect status-code. Exiting...")
         return {
             "message": "Incorrect status code"
