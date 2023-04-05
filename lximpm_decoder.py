@@ -364,8 +364,8 @@ def decode_pm_status(status: str, forSYMP4KI: bool):
     batVoltCoef = 1.1
     invWattCoef = 18
     invLoutCoef = 2.03
-    tempCoef = 0.4
-    dcBusCoef = 2 if forSYMP4KI else 1
+    tempCoef = 0.37
+    dcBusCoef = 2 if forSYMP4KI else 1.114
     pfcAmpsCoef = 0.2
 
     if len(status.replace('-', '').replace(' ', '')) != 44:
@@ -575,3 +575,9 @@ def decode_mim5_status(status: str):
 
 # decode_pm_status(
 #     "1001-5B67-F000-2007-0000-00-01-01-01-01-01-01-01-01-01-01-01", True)
+
+
+if __name__ == "__main__":
+    res = decode_pm_status(
+        "0804 42A0 0002 2000 0002 08 47 7B 09 00 00 00 50 2C 91 00 00", False)
+    print(res)
